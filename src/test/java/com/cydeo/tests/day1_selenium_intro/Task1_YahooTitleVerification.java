@@ -17,6 +17,7 @@ public class Task1_YahooTitleVerification {
 
         driver.get("http://www.yahoo.com");
 
+        //<title>Yahoo | Mail, Weather, Search, Politics, News, Finance, Sports &amp; Videos</title>
         String expectedTitle = "Yahoo | Mail, Weather, Search, Politics, News, Finance, Sports &amp; Videos";
 
         //actual title comes from the browser
