@@ -1,49 +1,31 @@
 package com.cydeo.tests.day2_locators_getText_getAttribute;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class T1_CydeoVerifications {
-
+public class T3_GoogleSearch {
     public static void main(String[] args) {
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
-        driver.navigate().to("https://practice.cydeo.com");
+        driver.get("https://www.google.com");
 
-        String expectedURL = "cydeo";
-        String actualURL = driver.getCurrentUrl();
+        WebElement googleSearchBox =driver.findElement(By.name("q"));
+        googleSearchBox.sendKeys("apple"+ Keys.ENTER);
 
-        if (actualURL.contains(expectedURL)){
-            System.out.println("URL verification PASSED");
-        }else{
-            System.out.println("URL verification FAILED!!");
-        }
-        String expectedTitle = "Practice";
+        String expectedInTitle = "apple";
         String actualTitle = driver.getTitle();
-        if (actualTitle.equals(expectedTitle)){
+        if (actualTitle.startsWith(expectedInTitle)) {
             System.out.println("Title verification PASSED!");
-        }else {
+        }else{
             System.out.println("Title verification FAILED!!");
         }
 
-        driver.close();
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
 }
